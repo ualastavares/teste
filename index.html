@@ -9,7 +9,7 @@
 
 <style>
 
-/* ===== SEU CSS ORIGINAL INTACTO ===== */
+/* ===== RESET ===== */
 
 *{
     margin:0;
@@ -28,6 +28,8 @@ body{
     padding:40px 20px;
 }
 
+/* ===== CONTAINER ===== */
+
 .container{
     width:100%;
     max-width:900px;
@@ -36,8 +38,9 @@ body{
     border-radius:20px;
     border:1px solid rgba(255,255,255,0.06);
     box-shadow:0 0 80px rgba(255,255,255,0.03);
-    position:relative;
 }
+
+/* ===== HEADER ===== */
 
 .header{
     display:flex;
@@ -47,13 +50,8 @@ body{
     margin-bottom:30px;
 }
 
-.logo img{
-    max-width:220px;
-}
-
-.selo img{
-    max-width:90px;
-}
+.logo img{ max-width:220px; }
+.selo img{ max-width:90px; }
 
 h1{
     text-align:center;
@@ -73,6 +71,8 @@ h1{
     font-weight:300;
 }
 
+/* ===== FORM ===== */
+
 form{
     display:grid;
     gap:20px;
@@ -86,6 +86,7 @@ input,textarea{
     background:linear-gradient(145deg,#0f0f0f,#1a1a1a);
     color:#fff;
     transition:0.3s;
+    font-size:15px;
 }
 
 input:focus,textarea:focus{
@@ -98,6 +99,8 @@ textarea{
     height:110px;
     resize:none;
 }
+
+/* ===== SELECT CUSTOM ===== */
 
 .custom-select{
     position:relative;
@@ -139,6 +142,8 @@ textarea{
     display:block;
 }
 
+/* ===== UPLOAD ===== */
+
 .upload-area{
     display:flex;
     align-items:center;
@@ -147,6 +152,7 @@ textarea{
     border:1px solid #222;
     padding:14px 18px;
     border-radius:12px;
+    flex-wrap:wrap;
 }
 
 .upload-btn{
@@ -162,7 +168,10 @@ textarea{
 #file-name{
     font-size:13px;
     color:#aaa;
+    word-break:break-word;
 }
+
+/* ===== CHECKBOX ===== */
 
 .checkbox{
     display:flex;
@@ -180,6 +189,8 @@ textarea{
     accent-color:#fff;
 }
 
+/* ===== BUTTON ===== */
+
 button{
     padding:18px;
     border:none;
@@ -196,6 +207,69 @@ button{
 button:hover{
     transform:translateY(-2px);
     box-shadow:0 10px 25px rgba(255,255,255,0.2);
+}
+
+/* ===================================================== */
+/* ================= RESPONSIVIDADE ===================== */
+/* ===================================================== */
+
+@media (max-width: 768px){
+
+    body{
+        padding:20px 12px;
+        align-items:flex-start;
+    }
+
+    .container{
+        padding:30px 20px;
+        border-radius:16px;
+    }
+
+    .header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .logo img{ max-width:160px; }
+    .selo img{ max-width:70px; }
+
+    h1{
+        font-size:22px;
+        letter-spacing:2px;
+    }
+
+    .subtitle{
+        font-size:14px;
+        margin-bottom:30px;
+    }
+
+    input,textarea{
+        padding:14px;
+        font-size:14px;
+    }
+
+    button{
+        padding:16px;
+        font-size:14px;
+    }
+
+}
+
+@media (max-width: 480px){
+
+    .container{
+        padding:25px 15px;
+    }
+
+    h1{
+        font-size:20px;
+    }
+
+    .upload-area{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
 }
 
 </style>
@@ -218,45 +292,11 @@ button:hover{
     <p class="subtitle">Faça parte do time Tribalismo</p>
 
     <form>
-
         <input type="text" placeholder="Nome Completo" required>
         <input type="email" placeholder="E-mail" required>
         <input type="text" placeholder="Telefone / WhatsApp" required>
         <input type="text" placeholder="CPF" required>
         <input type="text" placeholder="Cidade e Estado" required>
-
-        <div class="custom-select">
-            <div class="select-selected">Área de Interesse</div>
-            <div class="select-options">
-                <div>Comercial / Vendas</div>
-                <div>Marketing</div>
-                <div>Design Criativo</div>
-                <div>Design de Produção (PCP)</div>
-                <div>Arte Finalista (INK)</div>
-                <div>Produção / Confecção</div>
-                <div>Estamparia / Impressão (INK)</div>
-                <div>Logística / Expedição</div>
-                <div>Controle de Qualidade</div>
-                <div>Financeiro</div>
-                <div>Administrativo</div>
-                <div>Tecnologia / Automação</div>
-                <div>Estágio</div>
-                <div>Sucesso do Cliente - Pós Vendas</div>
-                <div>Outro</div>
-            </div>
-        </div>
-
-        <div class="custom-select">
-            <div class="select-selected">Modelo de Trabalho</div>
-            <div class="select-options">
-                <div>Presencial</div>
-                <div>Freelancer</div>
-                <div>CLT</div>
-                <div>PJ</div>
-                <div>Estágio</div>
-                <div>A combinar</div>
-            </div>
-        </div>
 
         <textarea placeholder="Conte brevemente sobre sua experiência profissional"></textarea>
 
@@ -269,122 +309,14 @@ button:hover{
         <div class="checkbox">
             <input type="checkbox" required>
             <label>
-                Concordo com o tratamento dos meus dados pessoais conforme a Lei Geral de Proteção de Dados (LGPD) para fins de recrutamento e seleção.
+                Concordo com o tratamento dos meus dados pessoais conforme a LGPD.
             </label>
         </div>
 
         <button type="submit">Enviar Candidatura</button>
-
     </form>
 
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.1"></script>
-
-<script>
-document.querySelectorAll(".custom-select").forEach(select=>{
-    const selected=select.querySelector(".select-selected");
-    const options=select.querySelector(".select-options");
-
-    selected.addEventListener("click",()=>{
-        document.querySelectorAll(".custom-select").forEach(s=>{
-            if(s!==select) s.classList.remove("active");
-        });
-        select.classList.toggle("active");
-    });
-
-    options.querySelectorAll("div").forEach(option=>{
-        option.addEventListener("click",()=>{
-            selected.textContent=option.textContent;
-            select.classList.remove("active");
-        });
-    });
-});
-
-document.addEventListener("click",function(e){
-    document.querySelectorAll(".custom-select").forEach(select=>{
-        if(!select.contains(e.target)){
-            select.classList.remove("active");
-        }
-    });
-});
-
-document.getElementById("curriculo").addEventListener("change",function(){
-    const fileName=this.files[0]?.name || "Nenhum arquivo selecionado";
-    document.getElementById("file-name").textContent=fileName;
-});
-
-const { Client, Databases, Storage, ID } = Appwrite;
-
-const client = new Client()
-    .setEndpoint("https://fra.cloud.appwrite.io/v1")
-    .setProject("69a72477001e4adf1e43");
-
-const databases = new Databases(client);
-const storage = new Storage(client);
-
-const form = document.querySelector("form");
-
-form.addEventListener("submit", async (e) => {
-e.preventDefault();
-
-const nome = form.querySelector('input[placeholder="Nome Completo"]').value.trim();
-const email = form.querySelector('input[type="email"]').value.trim();
-const telefone = form.querySelector('input[placeholder="Telefone / WhatsApp"]').value.trim();
-const cpf = form.querySelector('input[placeholder="CPF"]').value.trim();
-const cidade = form.querySelector('input[placeholder="Cidade e Estado"]').value.trim();
-
-const area = document.querySelectorAll(".custom-select")[0]
-.querySelector(".select-selected").textContent;
-
-const modelo = document.querySelectorAll(".custom-select")[1]
-.querySelector(".select-selected").textContent;
-
-const experiencia = form.querySelector("textarea").value.trim();
-const file = document.getElementById("curriculo").files[0];
-
-let curriculoUrl = "";
-
-try {
-
-if (file) {
-const upload = await storage.createFile(
-"curriculos",
-ID.unique(),
-file
-);
-
-curriculoUrl = `https://fra.cloud.appwrite.io/v1/storage/buckets/curriculos/files/${upload.$id}/view?project=69a72477001e4adf1e43`;
-}
-
-await databases.createDocument(
-"rh",
-"candidatos",
-ID.unique(),
-{
-nome,
-email,
-telefone,
-cpf,
-cidade,
-area_interesse: area,
-modelo_trabalho: modelo,
-experiencia,
-curriculo_url: curriculoUrl
-}
-);
-
-alert("Candidatura enviada com sucesso 🚀");
-form.reset();
-document.getElementById("file-name").textContent = "Nenhum arquivo selecionado";
-
-} catch (error) {
-console.error(error);
-alert("Erro ao enviar candidatura");
-}
-
-});
-</script>
 
 </body>
 </html>
